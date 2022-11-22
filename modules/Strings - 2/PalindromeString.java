@@ -13,7 +13,6 @@ public class Main
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
 
-        s =  s.toLowerCase();
 
         int low = 0 ;
         int high = s.length()-1;
@@ -32,7 +31,7 @@ public class Main
             // System.out.println(s.charAt(low));
             // System.out.println(s.charAt(high));
 
-            if(s.charAt(low) != s.charAt(high) ){
+            if(Character.toLowerCase(s.charAt(low)) != Character.toLowerCase(s.charAt(high))){
                         System.out.println("0");
                 break;
  
