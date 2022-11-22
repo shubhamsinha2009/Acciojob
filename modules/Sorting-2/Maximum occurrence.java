@@ -2,48 +2,90 @@
 
 // Question link --  https://course.acciojob.com/idle?question=e56d8fb9-9b68-4cdd-a742-a8b11eb64a03
 
-
 import java.util.*;
 
-public class Main {
-    public static void main(String args[]) {
-        int n;
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
-        Solution ob = new Solution();
-        System.out.print(ob.maximum_occurrence(arr, n));
 
-    }
-}
+class Accio {
 
-class Solution{
+	private boolean areTheyEqual(int a , int b ){
+		return a==b;
+	}
+  
+    public void minOperations(int[] arr) {
 
-    int maximum_occurrence(int arr[], int n) {
+		// Brute Force 
+		    
+       // Time Complexity -- O(n^2)
+       // Space Complexity -- O(1)
+
+		 int minOperation = bruteSolution(arr); 
 
 		// Using sorting (in built function or merge or quick )
 		// Time Complexity -- O(nlogn)  
 		// Space Complexity -- O(1)
 
-		return sortingSolution(arr,n);
+		// int minOperation = sortingSolution(arr);
 		
-		// HashMap Solution
+		
+		// Optiminal Solution can be done through  Hashmap 
 		// Time Complexity -- O(n)
-		// Space Complexity -- O(n)
+	    // Space Complexity -- O(n)
 
-		// return hashmapSolution(arr,n);
+		 // int minOperation = hashMapSolution(arr);
+
+		System.out.println(minOperation);
     }
 
-	private int sortingSolution(int a[] , int n ){
+	public int bruteSolution(int[] arr){
 
+		int arrayLength = arr.length;
+		int maxRepetition = 1;
+		int lastIndex = arrayLength - 2 ;
+  
+
+		for(int i = 0 ; i< lastIndex ;i++ ){
+			int checkElement = arr[i];
+			int repetition = 1;
+
+			int nextElementFromCheck = i+1;
+          
+         // starting from next element because
+         // intial repetition value is 1
+          
+          
+			for(int j = nextElementFromCheck ; j< arrayLength;j++){
+
+				int currentElement = arr[j];
+
+				if( areTheyEqual(currentElement , checkElement) ){
+					repetition++;
+				}
+	
+			}
+
+			if(repetition > maxRepetition){
+				maxRepetition = repetition;
+			  }
+	
+		}
+
+		// Minimum Operation = totalElements - maxRepeation because 
+		// we need to change all numbers which are not repeated or 
+		//same as maximum repeated number
+
+		return arrayLength - maxRepetition ;
+		
+
+		
+	} 
+
+	public int sortingSolution(int a[] ){
+		int n = a.length;
 		Arrays.sort(a);
 
 		int maxFrequency = 1;
 		int freq = 1;
-		int maxOccurElement = a[0];
+	
 
 		for(int i = 1 ; i<n;i++){
 
@@ -56,22 +98,23 @@ class Solution{
 
 			if(freq > maxFrequency){
 				
-				 maxFrequency = freq;
-				maxOccurElement = a[i];
+				maxFrequency = freq;
 			} 
 			
 		}
 
-		return maxOccurElement;
+		return n- maxFrequency;
 		
 		
 	}
-
 	
-	private int hashmapSolution(int a[] , int n){
+	public int hashMapSolution(int[] a){
+		int n = a.length;
+
+		HashSet<Integer> set = new HashSet<Integer>();
 				
-		int max = 0;
-		int maxO = 0;
+		int max = 1;
+	
 		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
 		for(int i =0 ; i<n ; i++){
 		
@@ -85,17 +128,34 @@ class Solution{
 
 				if(value > max ){
 					max = value;
-					maxO = a[i];
+				
 				}
-				if(value == max && a[i] < maxO ){
-					maxO = a[i];
-				}
+				
 			}
 			
 
 		
 		}
 
-		return maxO;
+		return n - max ;
+	
 	}
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t > 0) {
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            for (int i = 0; i < n; ++i)
+                arr[i] = sc.nextInt();
+            Accio Obj = new Accio();
+            Obj.minOperations(arr);
+				
+            t--;
+        }
+        sc.close();
+    }
 }
