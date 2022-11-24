@@ -1,9 +1,7 @@
 
-// Question link: "https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015"
+// Question link: https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015
 
-/**
- * for reference, look here: <a href="http://www.google.com">Google</a>
- */
+
 
 import java.util.*;
 import java.lang.*;
