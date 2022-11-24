@@ -1,16 +1,7 @@
-/** 
- * Refer to <a href="https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015">Question</a> 
- */
-// link:https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015
 
-/**
- * @see <a href="https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015">Question</a> 
- */
-
-// {@link ClassName#fieldName Text to display}
+// Question link:https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015
 
 
-// [ghvgkjh](https://course.acciojob.com/idle?question=0ca3a15a-7003-4c33-850f-7e1e65798015)
 
 import java.util.*;
 import java.lang.*;
