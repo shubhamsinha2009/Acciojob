@@ -1,6 +1,3 @@
-
-// Questions Link --- https://course.acciojob.com/idle?question=401371a0-af9a-4e9c-ab4c-015c14491659
-
 import java.util.*;
 
 
@@ -13,14 +10,34 @@ class Accio {
     public void minOperations(int[] arr) {
 
 		// Brute Force 
-      
+		    
+       // Time Complexity -- O(n^2)
+       // Space Complexity -- O(1)
+
+		// int minOperation = bruteSolution(arr); 
+
+		// Using sorting (in built function or merge or quick )
+		// Time Complexity -- O(nlogn)  
+		// Space Complexity -- O(1)
+
+		 int minOperation = sortingSolution(arr);
 		
+		
+		// Optiminal Solution can be done through  Hashmap 
+		// Time Complexity -- O(n)
+	    // Space Complexity -- O(n)
+
+		 // int minOperation = hashMapSolution(arr);
+
+		System.out.println(minOperation);
+    }
+
+	public int bruteSolution(int[] arr){
+
 		int arrayLength = arr.length;
 		int maxRepetition = 1;
 		int lastIndex = arrayLength - 2 ;
-      
-       // Time Complexity -- O(n^2)
-       // Space Complexity -- O(1)
+  
 
 		for(int i = 0 ; i< lastIndex ;i++ ){
 			int checkElement = arr[i];
@@ -52,12 +69,73 @@ class Accio {
 		// we need to change all numbers which are not repeated or 
 		//same as maximum repeated number
 
-		int minOperation = arrayLength - maxRepetition ;
-		System.out.println(minOperation);
+		return arrayLength - maxRepetition ;
+		
 
-		// Optiminal Solution can be done through  Hashmap 
+		
+	} 
+
+	public int sortingSolution(int a[] ){
+		int n = a.length;
+		Arrays.sort(a);
+
+		int maxFrequency = 1;
+		int freq = 1;
 	
-    }
+
+		for(int i = 1 ; i<n;i++){
+
+			if(a[i] == a[i-1]){
+				freq++;
+				
+			}else{
+				freq =1 ;
+			}
+
+			if(freq > maxFrequency){
+				
+				maxFrequency = freq;
+			} 
+			
+		}
+
+		return n- maxFrequency;
+		
+		
+	}
+	
+	public int hashMapSolution(int[] a){
+		int n = a.length;
+
+		HashSet<Integer> set = new HashSet<Integer>();
+				
+		int max = 1;
+	
+		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+		for(int i =0 ; i<n ; i++){
+		
+			if(!map.containsKey(a[i])){
+
+				map.put(a[i],1);
+				
+			}else{
+				int value = map.get(a[i]);
+				map.put(a[i],++value);
+
+				if(value > max ){
+					max = value;
+				
+				}
+				
+			}
+			
+
+		
+		}
+
+		return n - max ;
+	
+	}
 }
 
 public class Main {
