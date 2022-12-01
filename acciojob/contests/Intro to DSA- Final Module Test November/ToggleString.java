@@ -19,7 +19,15 @@ class Solution{
 
 			char c = str.charAt(i);
 
-			sb.append(Character.isLowerCase(c) ? Character.toUpperCase(c):Character.toLowerCase(c));
+			 sb.append(Character.isLowerCase(c) ? Character.toUpperCase(c):Character.toLowerCase(c));
+
+			// Without ternary operator 
+			
+			// if(Character.isLowerCase(c)){
+			// 	sb.append(Character.toUpperCase(c));
+			// }else{
+			// 	sb.append(Character.toLowerCase(c));
+			// }
 		}
 		return sb.toString();
 	}
