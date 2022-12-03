@@ -1,7 +1,8 @@
 
-// Playground Link -- https://leetcode.com/playground/MQZnVqW9
+// Playground Link -- https://leetcode.com/playground/khgfBj8h
 
 // "static void main" must be defined in a public class.
+
 public class Main {
     public static int sumOfNumbers(int n){
         if(n == 1) return 1;
