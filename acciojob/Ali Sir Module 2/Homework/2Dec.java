@@ -1,7 +1,6 @@
 
 // https://leetcode.com/playground/RUTsAqiS
 
-
 public class Main {
     
  static void printFirstNNumbersThenReverse(int n){
@@ -27,11 +26,8 @@ public class Main {
  } 
     
  static void printBetween(int x,int y){
-        if(x==y){
-            System.out.print(x+" ");
-         return;
-        }
-        System.out.print(x+" ");
+      System.out.print(x+" ");
+        if(x==y) return;
         printNumberBetweenXandY(x+1,y);
     }
 
@@ -40,15 +36,14 @@ public class Main {
         int n = sc.nextInt();
       
         // Q1. Print 5 4 3 2 1 1 2 3 4 5
-         printFirstNNumbersThenReverse(n);
+        // printFirstNNumbersThenReverse(n);
         
         // Q2. Number Between x and y
-        // int m = sc.nextInt();
-        // printNumberBetweenXandY(n,m);
+        int m = sc.nextInt();
+        printNumberBetweenXandY(n,m);
         
     }
 }
-
 
 
 
