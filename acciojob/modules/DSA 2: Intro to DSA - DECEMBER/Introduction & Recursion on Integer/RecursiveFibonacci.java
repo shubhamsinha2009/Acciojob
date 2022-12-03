@@ -6,6 +6,11 @@ import static java.lang.Math.ceil;
 
 public class Main {
 	
+	
+	// Time Complexity - O(2^N)
+	// Space Complexity - O(n)
+	// Can be optimised using dp
+	
 	static int fib(int n ){
 		if(n<=2) return n-1;
 		return fib(n-1) + fib(n-2);
