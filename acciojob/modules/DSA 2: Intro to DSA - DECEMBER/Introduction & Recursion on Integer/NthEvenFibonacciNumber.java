@@ -5,6 +5,12 @@ import java.util.*;
 import static java.lang.Math.ceil;
 
 public class Main {
+	
+	
+	// Time Complexity - O(2^N)
+	// SPace Complexity - O(n)
+	// Can be optimised using dp
+	
 	static final int mod = 1000000007;
 	
 	static long NthEvenFibonacci(long n) {
