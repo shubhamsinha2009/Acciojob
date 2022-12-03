@@ -19,7 +19,8 @@ public class Main
 
         public static long fact(int n)
 	{
-			if(n ==1) return 1;
+			if(n==0) return 0;
+			if(n <=2) return n;
 	        return n*fact(n-1);
 	}
 }
