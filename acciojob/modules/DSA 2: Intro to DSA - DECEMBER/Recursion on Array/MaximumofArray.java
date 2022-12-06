@@ -14,22 +14,19 @@ public class Main {
 		{
 			nums[i] = sc.nextInt();
 		}
-        int result=maxElement(nums);
+        int result=maxElement(nums , nums.length);
         System.out.print(result);
     }
 
-    public static int maxElement(int[] arr){
-		int maxElement = Integer.MIN_VALUE;
-		return max(arr, 0, maxElement);
+    public static int maxElement(int[] arr ,int n){
+
+		if(n==1) return arr[0];
+
+		int max = Math.max(arr[n-1], maxElement(arr,n-1));
+		
+		return max;
 		
     }
 
-	public static int max(int[] a ,int startIndex, int maxElement){
-			if(startIndex == a.length) return maxElement;
-
-		maxElement = Math.max(maxElement , a[startIndex]);
-
-		return max(a,++startIndex,maxElement);
-		
-	}
+	
 }
