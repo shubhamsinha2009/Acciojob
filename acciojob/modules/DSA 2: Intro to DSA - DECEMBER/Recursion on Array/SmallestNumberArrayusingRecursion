@@ -1,0 +1,32 @@
+
+// Question Link -- https://course.acciojob.com/idle?question=8c8b34c5-be46-4d9c-9a68-51dcc9542b0b
+
+import java.util.*;
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+        sc.close();
+        System.out.println(recforMin(arr, n));
+    }
+
+	public static int recforMin(int[] arr, int n) {
+      int minElement = Integer.MAX_VALUE;
+		return min(arr, 0, minElement);
+    }
+
+	public static int min(int[] a ,int startIndex, int minElement){
+			if(startIndex == a.length) return minElement;
+
+		minElement = Math.min(minElement , a[startIndex]);
+
+		return min(a,++startIndex,minElement);
+		
+	}
+}
