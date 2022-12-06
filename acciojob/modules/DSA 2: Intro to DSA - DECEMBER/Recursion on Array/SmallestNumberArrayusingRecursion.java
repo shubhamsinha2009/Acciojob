@@ -17,16 +17,10 @@ public class Main {
     }
 
 	public static int recforMin(int[] arr, int n) {
-      int minElement = Integer.MAX_VALUE;
-		return min(arr, 0, minElement);
+		if(n==1) return arr[0];
+      int minElement = Math.min(arr[n-1] , recforMin(arr,n-1));
+		return minElement;
     }
 
-	public static int min(int[] a ,int startIndex, int minElement){
-			if(startIndex == a.length) return minElement;
-
-		minElement = Math.min(minElement , a[startIndex]);
-
-		return min(a,++startIndex,minElement);
-		
-	}
+	
 }
