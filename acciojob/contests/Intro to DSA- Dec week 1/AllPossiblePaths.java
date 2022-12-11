@@ -13,24 +13,24 @@ class Main{
           a[i] = sc.nextInt();
         }
         Solution obj=new Solution();
-        obj.allpossiblepaths(0,a,n,"");		    
+        obj.allpossiblepaths(0,a,n);		    
     }
 }
 
 class Solution
 {
-    public void allpossiblepaths(int i,int[] a,int n,String ans) {
+	 public void allpossiblepaths(int i,int[] a,int n) {
+		 printPossiblePaths(0,a,n,"");
+	 }
+    public void printPossiblePaths(int i,int[] a,int n,String ans) {
 
 		if(i==n-1){
 			System.out.println(ans+String.valueOf(i));
 			return;
 		}
-
-	
-
 		for(int j = 1;j<=a[i] && i+j<n;j++){
 		
-			allpossiblepaths(i+j,a,n,ans + String.valueOf(i)+" -> ");
+			printPossiblePaths(i+j,a,n,ans + String.valueOf(i)+" -> ");
 		}
     }
 }
