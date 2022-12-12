@@ -15,9 +15,7 @@ static void mergeSort(int[] arr,int l,int r){
 static void merge(int[] arr, int l, int mid,int r){
 
 	int merged[] = new int[r-l+1];
-	int p1 = l;
-	int p2 = mid + 1;
-	int p3 = 0;
+	int p1 = l, p2 = mid + 1,p3 = 0;
 
 	while(p1<=mid && p2<=r){
 		if(arr[p1] < arr[p2]) merged[p3++] = arr[p1++];
@@ -27,7 +25,7 @@ static void merge(int[] arr, int l, int mid,int r){
 	while(p1<=mid) merged[p3++] = arr[p1++];
 	while(p2<=r) merged[p3++] = arr[p2++];
 
-	for(int i =l ,j=0;j<merged.length;i++,j++) arr[i]=merged[j];
+	for(int i=0;i<merged.length;i++) arr[i+l]=merged[i];
 
 	
 }	
