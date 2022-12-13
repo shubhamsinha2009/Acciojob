@@ -4,26 +4,17 @@
 import java.io.*;
 import java.util.*;
 
+import java.io.*;
+import java.util.*;
+
 class Accio {
        static int[] quickSort(int a[], int n)
         {
 		int[] ans = new int[n]; 
 			int k = 0, val = a[0]; 
-			for(int i = 0; i < n; i++) 
-				if(a[i] < val){ 
-					ans[k] = a[i]; 
-					k++; 
-				} 
-			for(int i = 0; i < n; i++) 
-				if(a[i] == val){ 
-					ans[k] = a[i];
-					k++; 
-				}
-			for(int i = 0; i < n; i++) 
-				if(a[i] > val){
-					ans[k] = a[i]; 
-					k++; 
-				} 
+			for(int i : a) if(i<val) ans[k++] = i;
+			for(int i : a) if(i==val) ans[k++] = i;
+			for(int i : a) if(i>val) ans[k++] = i;
 			return ans;
         }  
 }
