@@ -20,21 +20,25 @@ public class Main {
 class Solution{ 
 	public void solve(int arr[],int n) 
 	{ 
-		ArrayList<Integer> al = new ArrayList<Integer>();
+		ArrayList<Integer> left = new ArrayList<Integer>();
 		for (Integer i : arr)
-            al.add(i);
-		quickSort(al);
+		        left.add(i);
+		
+				quickSort(left);
 	} 
-	public static ArrayList<Integer> quickSort(ArrayList<Integer> a)
+	public static ArrayList<Integer> quickSort(ArrayList<Integer> left)
 	{ 
-	
-		ArrayList<Integer> left = new ArrayList<>(); 
+
 		ArrayList<Integer> right = new ArrayList<>(); 
 
-		int pivot = a.remove(0); 
-		for(Integer i : a)
-			if(i<pivot) left.add(i);
-			else right.add(i);
+		int pivot = left.remove(0); 
+
+		int end = left.size();
+		for(int i = 0;i<end;i++)
+			if(left.get(i)>pivot){ 
+				right.add(left.remove(i--));
+				end--;
+			}
 	
 		
 		if(left.size() > 1) left = quickSort(left); 
@@ -50,6 +54,8 @@ class Solution{
 		return left; 
 	} 
 }
+
+ 
 
  
  
