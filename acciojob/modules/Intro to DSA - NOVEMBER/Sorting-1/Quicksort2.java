@@ -20,47 +20,36 @@ public class Main {
 class Solution{ 
 	public void solve(int arr[],int n) 
 	{ 
-		quickSort(arr,n);
+		ArrayList<Integer> al = new ArrayList<Integer>();
+		for (Integer i : arr)
+            al.add(i);
+		quickSort(al);
 	} 
-	public static int[] quickSort(int a[], int n)
+	public static ArrayList<Integer> quickSort(ArrayList<Integer> a)
 	{ 
-		int cnt = 0; 
-		for(int i = 1; i < n; i++){ 
-			if(a[i] < a[0]) cnt++; 
-		} 
-		int left[] = new int[cnt]; 
-		int right[] = new int[n - cnt - 1]; 
-		int j = 0, k = 0; 
-		for(int i = 1; i < n; i++){ 
-			if(a[i] < a[0]){ 
-				left[j] = a[i];
-				j++;
-			}else{ 
-				right[k] = a[i];
-				k++; 
-			} 
-		} 
-		if(cnt > 1) left = quickSort(left, cnt); 
-		if(n - cnt - 1 > 1) right = quickSort(right, n - cnt - 1); 
-		int pivot = a[0]; 
-		a = new int[n]; 
-		j = 0; 
-		for(int i = 0; i < cnt; i++){ 
-			a[j] = left[i]; 
-			j++; 
-		}
-		a[j] = pivot; 
-		j++; 
-		for(int i = 0; i < n - cnt - 1; i++){ 
-			a[j] = right[i];
-			j++; 
-		} 
-		for(int i = 0; i < n; i++){ 
-			System.out.print(a[i] + " ");
-		}
+	
+		ArrayList<Integer> left = new ArrayList<>(); 
+		ArrayList<Integer> right = new ArrayList<>(); 
+
+		int pivot = a.remove(0); 
+		for(Integer i : a)
+			if(i<pivot) left.add(i);
+			else right.add(i);
+	
+		
+		if(left.size() > 1) left = quickSort(left); 
+		if(right.size() > 1) right = quickSort(right);
+		
+		left.add(pivot);
+		left.addAll(right);
+
+		for(Integer i : left)
+			System.out.print(i + " ");
+
 		System.out.println(""); 
-		return a; 
+		return left; 
 	} 
 }
 
+ 
  
