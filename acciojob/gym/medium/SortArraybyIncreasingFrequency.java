@@ -13,8 +13,6 @@ class Solution {
         List<Integer> list = new ArrayList<>(map.keySet());
 		
 	    Collections.sort(list, (a, b) -> map.get(a) == map.get(b)? Integer.compare(b,a) : Integer.compare(map.get(a), map.get(b)));
-
-        int[] res = new int[nums.length];
 		
         for (int num : list) 
             for (int j = 0; j < map.get(num); j++) 
