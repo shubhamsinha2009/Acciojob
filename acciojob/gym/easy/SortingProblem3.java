@@ -10,29 +10,54 @@ public class Main {
 		int[] a = new int[n];
 
 		for(int i =0;i<n;i++){
-			a[i] =sc.nextInt();
-		}
-
-				
-		for(int i =0;i<n;i++){
-			a[i]*=a[i];
+			a[i] = sc.nextInt();
 		}
 		
-		for(int i = 0;i<n-1;i++){
-			
-			for(int j=0;j<n-1;j++){		
-				
-				if(a[j] > a[j+1]){
-					int temp = a[j];
-					a[j] = a[j+1];
-					a[j+1] = temp;
-				}
-			}
-		}
 
-		
+		squaring(n,a);
+		bubbleSort(n,a);
+
+		// Printing 
 		for(int i =0;i<n;i++){
 			System.out.print(a[i] + " ");
 		}
     }
+
+	public static void squaring(int n , int[] a){
+				
+		for(int i =0;i<n;i++){
+			a[i]*=a[i];
+		}
+	}
+	
+	public static void bubbleSort(int N, int[] arr) {
+
+		
+		for(int i = 0 ; i<N-1 ; i++){
+
+			boolean swap = false;
+			for(int j = 0 ; j<N-1-i; j++ ){
+
+				int currentElementIndex = j;
+				int nextElementIndex = j+1;
+				
+				if( arr[currentElementIndex] > arr[nextElementIndex]){
+					swap(currentElementIndex,nextElementIndex,arr);
+					swap = true;
+				}
+				
+			}
+			if(!swap){
+				break;
+			}
+		}
+
+		
+    }
+	
+	private static void swap(int a , int b , int[] arr){
+					int temp = arr[a];
+					arr[a] = arr[b];
+					arr[b] = temp;
+	}
 }
