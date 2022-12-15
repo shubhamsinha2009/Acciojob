@@ -27,8 +27,7 @@ public class Main
 
 				for(int i : a){
 						int rem = i%k;
-						pairs+= hash.getOrDefault(k-rem ,0);
-						if(rem==0) pairs+= hash.getOrDefault(0,0);
+						pairs+= hash.getOrDefault((k-rem)%k ,0);						
 						hash.put(rem,hash.getOrDefault(rem,0)+1);
 				}
 
