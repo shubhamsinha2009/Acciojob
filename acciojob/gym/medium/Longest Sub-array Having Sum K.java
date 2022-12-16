@@ -30,10 +30,10 @@ public class Main
 
 					int sum =0;
 					 int maxLength = 0 ;
-					
+					map.put(0,-1);
 					for(int i =0; i<n;i++){
 						sum+=a[i];
-						if(sum==k) maxLength = Math.max(maxLength,i+1);
+						//if(sum==k) maxLength = Math.max(maxLength,i+1);
 						maxLength = Math.max(maxLength, i - map.getOrDefault(sum-k,i));					
 						map.putIfAbsent(sum,i);
 					}
