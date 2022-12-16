@@ -23,7 +23,7 @@ class Main {
 			}
 		}
 
-		return new int[]{low+1,high+1;
+		return new int[]{low+1,high+1};
     }
 	
     public static void main (String[] args) throws IOException {
