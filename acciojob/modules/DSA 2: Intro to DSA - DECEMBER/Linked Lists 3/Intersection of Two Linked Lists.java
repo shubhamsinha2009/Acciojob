@@ -1,6 +1,3 @@
-
-// Question Link -- https://course.acciojob.com/idle?question=f7994df4-2130-46b1-a9c2-3b3c68b7366c
-
 import java.util.*;
 
 class Main{
@@ -27,14 +24,29 @@ static Node intersectingNode(Node headA, Node headB)
 	// Time Complexity - O(mn)
 	// Space Complexity - O(1)
 
-		// return bruteForce(headA,headB);
+	// return bruteForce(headA,headB);
 
 	// Hashing 
 	// Time Complexity - O(m+n)
 	// Space Complexity - O(m)
 
-		return hashing(headA,headB);
+	// return hashing(headA,headB);
+
+	// Adding linked lists 
+	// Time Complexity - O(m+n)
+	// Space Complexity - O(1)
+
+	return getByAdding(headA, headB);
       
+}
+	
+static Node getByAdding(Node headA, Node headB) {
+	Node ptrA = headA, ptrB = headB;
+	while (ptrA != ptrB) { // loop until we found the first common node
+		ptrA = ptrA == null ? headB : ptrA.next; // once we're done with A, move to B
+		ptrB = ptrB == null ? headA : ptrB.next; // once we're done with B, move to A
+	}
+	return ptrA;
 }
 
 static Node hashing(Node headA, Node headB){
