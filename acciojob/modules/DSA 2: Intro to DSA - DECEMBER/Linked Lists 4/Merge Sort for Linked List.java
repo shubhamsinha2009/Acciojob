@@ -5,47 +5,47 @@ import java.util.*;
 
 class Solution {
     public static Node mergesort(Node head){
-		if(head==null) return null;
-
-		if(head.next==null) return head ;
+		if(head==null || head.next==null) return head ;
 
 		Node preMid = middle(head);
 		Node mid = preMid.next;
 		preMid.next = null;
 
-		Node l1 = mergesort(head);
-		Node l2 = mergesort(mid);
-		return merge(l1,l2);
+		Node left = mergesort(head);
+		Node right = mergesort(mid);
+		return merge(left,right);
     }
 
-	public static Node merge(Node l1,Node l2){
+	public static Node merge(Node left,Node right){
 
-		if(l1==null && l2 ==null) return null;
+		if(left==null) return right;
+		if(right ==null) return left;
+		
 		Node head = new Node(0);
 		Node dummy = head;
 
 		
-		while(l1!=null && l2!=null){
+		while(left!=null &&right!=null){
 
-			if(l1.data <l2.data){
+			if(left.data <right.data){
 
-				dummy.next = l1;
-				l1 =l1.next;
+				dummy.next = left;
+				left =left.next;
 			
 			}else{
 				
-				dummy.next = l2;
-				l2 =l2.next;
+				dummy.next =right;
+				right =right.next;
 				
 			}
 				dummy= dummy.next;
 		}
 
-		if(l1!=null){
-			dummy.next=l1;
+		if(left!=null){
+			dummy.next=left;
 		}
-		if(l2!=null){
-			dummy.next = l2;
+		if(right!=null){
+			dummy.next =right;
 		}
 
 		return head.next;
@@ -104,3 +104,4 @@ public class Main {
         }
     }
 }
+
