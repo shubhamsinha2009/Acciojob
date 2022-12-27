@@ -1,7 +1,6 @@
 
 // Question Link -- https://course.acciojob.com/idle?question=f04cbc4e-9a17-4302-8430-6b9f84ecbcb5
 
-
 import java.util.*;
 import java.io.*;
 
