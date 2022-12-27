@@ -5,10 +5,10 @@ import java.io.*;
 import java.util.*;
 class Main {
 	static void toh(int N, int from, int to, int aux) {
-		if(N==1) {
-		print(N,from,to); 
-		return;
-		}
+		if(N==0) return;
+	
+		
+		
 		toh(N-1,from,aux,to);
 		print(N,from,to); 
 		toh(N-1,aux,to,from);	
