@@ -8,18 +8,11 @@ import java.util.*;
 
 class Solution {
     public boolean ExtraBrackets(String exp) {
-
 		Stack<Character> stack = new Stack<>();
-
 		for(Character ch : exp.toCharArray()){
-
 			if(ch==')'){
-				boolean count = false;
-				while(stack.pop()!='('){
-					count = true;
-				}
-
-				if(!count) return true; 
+				if(stack.peek() == '(') return true; 
+				while(stack.pop()!='(');	
 			}else{
 				stack.push(ch);
 			}
