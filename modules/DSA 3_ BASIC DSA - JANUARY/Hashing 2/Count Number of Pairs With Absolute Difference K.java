@@ -1,6 +1,7 @@
 
 // Question Link -- https://course.acciojob.com/idle?question=c47351e9-e120-488d-a193-0fdc5ab7a56b
 
+
 import java.io.*;
 import java.util.*;
 
@@ -20,24 +21,19 @@ class Solution {
 				}
 				
 			}else{
-				map.put(e,true);
+
+				if(!map.containsKey(e)){
+
+					if(map.containsKey(e-k)) pairs++;
+					if(map.containsKey(e+k)) pairs++;
+				}
+				
+				map.put(e,true);	
 			}
-				
-			
-				
+					
 		};
 
-		if(k==0) return pairs;
-
-		for(int e:map.keySet()){
-			
-			if(map.getOrDefault(e-k,false))pairs++;
-			if(map.getOrDefault(e+k,false))pairs++;
-
-				map.put(e,false);
-		}
-
-		return pairs;
+		 return pairs;
 
     }
 }
@@ -57,3 +53,4 @@ public class Main {
         System.out.println('\n');
     }
 }
+
