@@ -14,8 +14,8 @@ public class Main {
 			char ch = s.charAt(i);
 
 			map.put(ch,map.getOrDefault(ch,0)+1);
-
-				while(map.size()>k){
+			// if or while both will work here amazingly 
+				if(map.size()>k){
 						char chh = s.charAt(j);
 						int value = map.get(chh) - 1;
 					if(value==0){
