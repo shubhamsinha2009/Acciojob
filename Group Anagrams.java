@@ -11,9 +11,7 @@ public class Main {
             int size) {
               HashMap<String,List<String>> map = new HashMap<>();
         for(String str:strs){
-      
-          
-			char[] ca = str.toCharArray();
+            char[] ca = str.toCharArray();
             Arrays.sort(ca);
             String sb= String.valueOf(ca);
             if(!map.containsKey(sb))map.put(sb,new ArrayList<>());
