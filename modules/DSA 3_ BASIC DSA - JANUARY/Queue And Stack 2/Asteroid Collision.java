@@ -1,7 +1,4 @@
 
-// Question Link -- https://course.acciojob.com/idle?question=4d8f93dd-693d-43a3-b3d1-2fcbad36d2ff
-
-
 // Question Link - https://course.acciojob.com/idle?question=4d8f93dd-693d-43a3-b3d1-2fcbad36d2ff
 
 import java.util.*;
