@@ -2,6 +2,7 @@
 // Question Link -- https://course.acciojob.com/idle?question=21d3de29-2828-4145-8aa5-c9d8ab42ee78
 
 
+
 import java.util.LinkedList; 
 import java.util.Queue; 
 import java.io.*;
@@ -87,11 +88,9 @@ class Solution{
 
             for(int i=0;i<size;i++){
                 Node node= queue.poll();
+				 if(node.right!=null)  queue.offer(node.right); 
                   if(node.left!=null)  queue.offer(node.left);
-                  if(node.right!=null)  queue.offer(node.right); 
-                 
-                 if(list.size() == level+1) list.set(level,node.data);
-                 else list.add(node.data);
+                 if(list.size() == level) list.add(node.data);
             }
             level++;
         }
@@ -99,4 +98,6 @@ class Solution{
         return list;
     }
 }
+
+
 
