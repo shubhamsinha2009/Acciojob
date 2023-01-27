@@ -69,17 +69,35 @@ class Main {
 class Solution {
     
     public ArrayList<Integer> solve(Node root) {
-       
+       // Morris Traversal - Space O(1)
 		ArrayList<Integer> ans = new ArrayList<>();
-		inorder(root,ans);
-			return ans;
+
+		Node cur = root;
+
+		while(cur!=null){
+
+			if(cur.left!=null){
+				Node prev = cur.left;
+
+				while(prev.right!=null && prev.right!=cur){
+					prev= prev.right;
+				}
+
+					if(prev.right!=null){
+						prev.right=null;
+						ans.add(cur.data);
+						cur=cur.right;
+					}else{
+						prev.right = cur;
+						cur = cur.left;
+					}
+			}else{
+				ans.add(cur.data);
+				cur = cur.right;
+			}
+		}
+
+		return ans;
     }
-
-	public void inorder(Node root,ArrayList<Integer> ans){
-		if(root==null) return;
-
-		inorder(root.left,ans);
-		ans.add(root.data);
-		inorder(root.right,ans);
-	}
 }
+
