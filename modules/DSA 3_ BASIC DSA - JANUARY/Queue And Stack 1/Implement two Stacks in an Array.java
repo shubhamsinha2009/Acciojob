@@ -13,19 +13,19 @@ class twoStacks {
 	{
 		size = n;
 		arr = new int[n];
-		top1 = n / 2 + 1;
-		top2 = n / 2;
+		top1 = -1;
+		top2 = n;
 	}
 
 	// Method to push an element x to stack1
 	void push1(int x)
 	{
-        if(top1==size){
+        if(top1+1 >= top2){
 			System.out.println(-1);
 			return;
 		} 
 
-		arr[top1++] = x;
+		arr[++top1] = x;
 		
 	}
 
@@ -33,23 +33,23 @@ class twoStacks {
 	// x to stack2
 	void push2(int x)
 	{
-	      if(top2==-1){
+	      if(top1+1 >= top2){
 			  System.out.println(-1);
 			  return;
 		  } 
 
-			arr[top2--] = x;
+			arr[--top2] = x;
 	}
 
 	// Method to pop an element from first stack
 	void pop1()
 	{
-		if(top1 == size/2+1 ){
+		if(top1 == -1 ){
 			System.out.println(-1);
 			return;
 		} 
 		
-		System.out.println(arr[--top1]);
+		System.out.println(arr[top1--]);
 		
 	}
 
@@ -57,12 +57,12 @@ class twoStacks {
 	// from second stack
 	void pop2()
 	{
-		if(top2 == size/2 ){
+		if(top2 == size ){
 			System.out.println(-1);
 			return;
 		} 
 		
-		System.out.println(arr[++top2]);
+		System.out.println(arr[top2++]);
 	}
 };
 public class Main {
