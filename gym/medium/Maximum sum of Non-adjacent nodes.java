@@ -64,6 +64,31 @@ class Node {
 class Solution {
 
     public int getMaxSum(Node root) {
-        // add your code here
+
+		HashMap<Node,Integer> map = new HashMap<>();
+		
+		return h(root,map);
     }
+	public int h(Node root ,HashMap<Node,Integer> map){
+		if(root == null) return 0;
+
+		if(map.containsKey(root)) return map.get(root);
+		int inc = root.data ;
+
+		if(root.left!=null){
+			inc += h(root.left.left,map);
+			inc += h(root.left.right,map);
+		}
+
+		if(root.right!=null){
+			inc+= h(root.right.left,map);
+			inc+= h(root.right.right,map);
+		}
+
+		int exc = h(root.left,map) + h(root.right,map);
+
+			int max = Math.max(inc , exc);
+				map.put(root,max);
+				return max;
+	}
 }
