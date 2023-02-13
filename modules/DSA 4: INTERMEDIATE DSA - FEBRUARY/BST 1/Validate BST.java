@@ -75,19 +75,48 @@ class Main {
 
 class Solution{
     boolean isBST(Node node){
+		if(node == null) return true;
+		Node cur = next(node);
+		// System.out.println("cur : "+ cur.data);
+		while(cur!=null){
+			Node prev = cur ;
+			cur = next(prev.right);
+			
+			if(cur!=null){
+				// System.out.println("prev : " + prev.data + " cur : "+ cur.data);
+				if(prev.data > cur.data) return false;
+			}
+			
+		}
+		return true;
+		
+	}
 
-		return isBST(node,null,null);
-       
-    }
+	Node next(Node cur){
 
-	boolean isBST(Node root, Integer low ,Integer high){
-		if(root == null) return true;
+		while(cur!=null){
 
-		if((low!=null && root.data <= low) || (high!=null && root.data >= high)){
-			return false;
+				if(cur.left!=null){
+					Node p = cur.left;
+					while(p.right!=null&&p.right!=cur){
+						p=p.right;
+					}
+
+					if(p.right!=null){
+						p.right = null ;
+						return cur;
+					// cur = cur.right;
+					}else{
+						p.right = cur;
+						cur = cur.left;
+					}
+				}else{
+						return cur;
+					// cur = cur.right;
+				}
 		}
 
-		return isBST(root.left,low,root.data) && isBST(root.right,root.data,high);
+		return null;
 	}
-	
 }
+
