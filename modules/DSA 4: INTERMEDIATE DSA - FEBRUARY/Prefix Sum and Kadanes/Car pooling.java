@@ -31,8 +31,8 @@ class Solution{
 			for(int trip[] : trips){
 				int count = treeMap.getOrDefault(trip[1],0) + trip[0];
 				treeMap.put(trip[1],count);
-				int count2 = treeMap.getOrDefault(trip[2],0) - trip[0];
-				treeMap.put(trip[2],count2);
+				int count2 = treeMap.getOrDefault(trip[2]+1,0) - trip[0];
+				treeMap.put(trip[2]+1,count2);
 			}
 
 			int prev = 0;
